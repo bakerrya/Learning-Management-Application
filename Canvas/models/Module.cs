@@ -1,8 +1,12 @@
 public class Module{
-    public string? name;
-    public string? description;
+    public string Name { get; set; }
+    public string? Description { get; set; }
 
-    Module(){
-        
+    public List<ContentItem> Content { get; set; }
+    Module(string name, string? description, List<ContentItem> content)
+    {
+        this.Name = name;
+        this.Description = description;
+        this.Content = content;
     }
 }
