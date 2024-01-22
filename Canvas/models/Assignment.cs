@@ -5,7 +5,7 @@
     public int TotalPoints { get; set; }
     public DateTime DueDate { get; set; }
 
-    Assignment(string name, string? description, int totalPoints, DateTime dueDate)
+    public Assignment(string name, string? description, int totalPoints, DateTime dueDate)
     {
         this.Name = name;
         this.Description = description;

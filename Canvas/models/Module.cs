@@ -3,7 +3,7 @@ public class Module{
     public string? Description { get; set; }
 
     public List<ContentItem> Content { get; set; }
-    Module(string name, string? description, List<ContentItem> content)
+    public Module(string name, string? description, List<ContentItem> content)
     {
         this.Name = name;
         this.Description = description;

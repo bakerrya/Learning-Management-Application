@@ -3,12 +3,17 @@ public class Person{
     public Enum? Classification;
     public double? Grades;
 
-    Person(string? name, Enum? classification, double? grades = 0.00)
+    public Person(string? name, Enum? classification, double? grades = 0.00)
     {
         this.Name = name;
         this.Classification = classification;
         this.Grades = grades;
 
+    }
+
+    public void DisplayStudentInfo()
+    {
+        Console.WriteLine($"Name: {Name}, Student Classification: {Classification}, GPA: {Grades}");
     }
 }
 
