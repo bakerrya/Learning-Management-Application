@@ -4,7 +4,13 @@ using Canvas.Services;
 namespace Canvas.Helpers {
     internal class StudentHelper{
 
-        private StudentService studentService = new StudentService();
+        private StudentService studentService;
+        
+        public StudentHelper(StudentService ssrvc){
+            studentService = ssrvc;
+        }
+
+
         public void CreateStudentRecord(){
             Console.WriteLine("Please enter in the name of the student: ");
             var name = Console.ReadLine();
