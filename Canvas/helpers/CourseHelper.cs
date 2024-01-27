@@ -12,7 +12,7 @@ namespace Canvas.Helpers {
             courseService = csrvc;
 
         }
-        public void CreateCourseRecord(){
+        public void CreateCourseRecord(Course? selectedCourse = null){
             Console.WriteLine("Please enter in the course code: ");
             int.TryParse(Console.ReadLine(), out var code);
             Console.WriteLine("Please enter in the name of the course: ");
@@ -20,14 +20,18 @@ namespace Canvas.Helpers {
             Console.WriteLine("Please enter an optional description: ");
             var description = Console.ReadLine();
             
-            var course = new Course(code, name ?? string.Empty, description ?? string.Empty);
-
-            courseService.Add(course);
-
-            foreach (var s in courseService.courseList){
-                Console.WriteLine($@"Code: {s.Code}, Name: {s.Name}, Description: {s.Description}, Roster: {s.Roster ?? []}, Assignments: {s.Assignments ?? []},
-                Modules: {s.Modules ?? []}");
+            if (selectedCourse == null){
+                var course = new Course(code, name ?? string.Empty, description ?? string.Empty);
+                courseService.Add(course);
+                courseService.courseList.ForEach(Console.WriteLine);
+                Console.WriteLine();
+                return;
             }
+            selectedCourse.Code = code;
+            selectedCourse.Name = name;
+            selectedCourse.Description = description;
+
+            courseService.courseList.ForEach(Console.WriteLine);
             Console.WriteLine();
 
         }
@@ -106,6 +110,7 @@ namespace Canvas.Helpers {
             if (string.IsNullOrWhiteSpace(courseName))
             {
                 Console.WriteLine("Invalid input");
+                Console.WriteLine();
                 return;
             }
 
@@ -114,6 +119,7 @@ namespace Canvas.Helpers {
             if (selectedCourse == null)
             {
                 Console.WriteLine("No such course found");
+                Console.WriteLine();
                 return;
             }
 
@@ -124,7 +130,22 @@ namespace Canvas.Helpers {
             Console.WriteLine();
         }
 
+        public void updateCourse(){
+            Console.WriteLine("Please select a course to update: ");
+            courseService.courseList.ForEach(Console.WriteLine);
+            var desiredCourse = Console.ReadLine();
 
+            Course selectedCourse = courseService.courseList.FirstOrDefault(c => c.Name == desiredCourse);
+
+            if (selectedCourse == null){
+                Console.WriteLine("No such course found");
+                Console.WriteLine();
+                return;
+            }
+            
+            CreateCourseRecord(selectedCourse);
+
+        }
 
         public void SearchCourse(){
             Console.WriteLine("Please enter in course name: ");

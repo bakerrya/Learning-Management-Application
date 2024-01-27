@@ -27,7 +27,7 @@ namespace Canvas.Models{
 
         public override string ToString()
         {
-            return $"Code:{Code}, Name: {Name}, Description: {Description}, Roster: {Roster}, Assignments: {Assignments}, Modules: {Modules}";
+            return $"Code:{Code}, Name: {Name}";
         }
 
 

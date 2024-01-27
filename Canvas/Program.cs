@@ -17,7 +17,7 @@ namespace Canvas // Note: actual namespace depends on the project name.
             var assignmenthelper = new AssignmentHelper(coursesvc);
             displayMenu();
             int.TryParse(Console.ReadLine(),out int result);
-            while(result != 10){
+            while(result != 12){
                 if (result == 1){
                     studenthelper.CreateStudentRecord();
                 }
@@ -45,8 +45,10 @@ namespace Canvas // Note: actual namespace depends on the project name.
                 else if (result == 9){
                     assignmenthelper.CreateAssignment();
                 }
+                else if (result == 10){
+                    coursehelper.updateCourse();
+                }
                 
-
                 displayMenu();
                 int.TryParse(Console.ReadLine(),out result);
             }
@@ -63,8 +65,9 @@ namespace Canvas // Note: actual namespace depends on the project name.
             Console.WriteLine("6: Search for a course");
             Console.WriteLine("7: Add a student to an existing course");
             Console.WriteLine("8: Remove student from existing course");
-            Console.WriteLine("8: Add an assignment to an existing course");
-            Console.WriteLine("10: Exit Program");
+            Console.WriteLine("9: Add an assignment to an existing course");
+            Console.WriteLine("10: Update an existing course");
+            Console.WriteLine("12: Exit Program");
 
         }
 

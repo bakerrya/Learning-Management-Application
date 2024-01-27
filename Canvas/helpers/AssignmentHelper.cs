@@ -43,7 +43,7 @@ namespace Canvas.Helpers{
 
             Console.WriteLine("Outputting updated list of assignments");
             selectedCourse.Assignments.ForEach(Console.WriteLine);
-
+            Console.WriteLine();
 
         }
     
