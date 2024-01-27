@@ -25,6 +25,11 @@ namespace Canvas.Helpers {
 
         }
 
+        public void SearchCourse(){
+            Console.WriteLine("Please enter in student name: ");
+            var query = Console.ReadLine() ?? string.Empty;
+            courseService.SearchCourse(query).ToList().ForEach(Console.WriteLine);
+        }
         public void ListCourses(){
             courseService.ListCourses();
         }

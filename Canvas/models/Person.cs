@@ -20,6 +20,11 @@ namespace Canvas.Models{
         {
             Console.WriteLine($"Name: {Name}, Student Classification: {Classification}, GPA: {Grades}");
         }
+
+        public override string ToString()
+        {
+            return $"Name: {Name}, Student Classification: {Classification}";
+        }
     }
 
     public enum Classification

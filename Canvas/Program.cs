@@ -26,6 +26,10 @@ namespace Canvas // Note: actual namespace depends on the project name.
                 else if (result == 4){
                     coursehelper.ListCourses();
                 }
+                else if (result == 5){
+                    studenthelper.SearchStudent();
+                }
+
 
                 displayMenu();
                 int.TryParse(Console.ReadLine(),out result);
@@ -104,7 +108,9 @@ namespace Canvas // Note: actual namespace depends on the project name.
             Console.WriteLine("2: Create a new course");
             Console.WriteLine("3: List all students");
             Console.WriteLine("4: List all courses");
-            Console.WriteLine("5: Remove student from existing course");
+            Console.WriteLine("5: Search for a student: ");
+            Console.WriteLine("6: Search for a course: ");
+            Console.WriteLine("6: Remove student from existing course");
             Console.WriteLine("10: Exit Program");
 
         }

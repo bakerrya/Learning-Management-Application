@@ -22,9 +22,14 @@ namespace Canvas.Models{
 
         public void DisplayCourseInfo()
         {
-            Console.WriteLine($"Code:{Code}, Name: {Name}, Description: {Description}, Roster: {Roster}, Assignments: {Assignments}, Modules: {Modules}");
+            Console.WriteLine($"Code:{Code}, Name: {Name}");
         }
-    
+
+        public override string ToString()
+        {
+            return $"Code:{Code}, Name: {Name}, Description: {Description}, Roster: {Roster}, Assignments: {Assignments}, Modules: {Modules}";
+        }
+
 
 
     }
