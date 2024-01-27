@@ -11,8 +11,10 @@ namespace Canvas // Note: actual namespace depends on the project name.
         static void Main(string[] args)
         {
             var studentsvc = new StudentService();
+            var coursesvc = new CourseService();
             var studenthelper = new StudentHelper(studentsvc);
-            var coursehelper = new CourseHelper(studentsvc);
+            var coursehelper = new CourseHelper(studentsvc, coursesvc);
+            var assignmenthelper = new AssignmentHelper(coursesvc);
             displayMenu();
             int.TryParse(Console.ReadLine(),out int result);
             while(result != 10){
@@ -40,6 +42,9 @@ namespace Canvas // Note: actual namespace depends on the project name.
                 else if (result == 8){
                     coursehelper.RemoveStudent();
                 }
+                else if (result == 9){
+                    assignmenthelper.CreateAssignment();
+                }
                 
 
                 displayMenu();
@@ -58,6 +63,7 @@ namespace Canvas // Note: actual namespace depends on the project name.
             Console.WriteLine("6: Search for a course");
             Console.WriteLine("7: Add a student to an existing course");
             Console.WriteLine("8: Remove student from existing course");
+            Console.WriteLine("8: Add an assignment to an existing course");
             Console.WriteLine("10: Exit Program");
 
         }

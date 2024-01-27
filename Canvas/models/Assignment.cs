@@ -13,5 +13,10 @@
             this.TotalPoints = totalPoints;
             this.DueDate = dueDate;
         }
+
+        public override string ToString()
+        {
+            return $"Name: {Name}, Description: {Description}, TotalPoints: {TotalPoints}, Due Date: {DueDate}";
+        }
     }
 }

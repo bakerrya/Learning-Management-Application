@@ -4,11 +4,12 @@ using Canvas.Services;
 namespace Canvas.Helpers {
     internal class CourseHelper{
 
-        private CourseService courseService = new CourseService();
+        private CourseService courseService;
         private StudentService studentService;
 
-        public CourseHelper(StudentService ssrvc){
+        public CourseHelper(StudentService ssrvc, CourseService csrvc){
             studentService = ssrvc;
+            courseService = csrvc;
 
         }
         public void CreateCourseRecord(){
@@ -61,12 +62,14 @@ namespace Canvas.Helpers {
                 selectedCourse = courseService.courseList.FirstOrDefault(s => s.Name == courseName);
                 if (selectedCourse == null){
                     Console.WriteLine("No such course found");
+                    Console.WriteLine();
                     return;
                 }
             }
             else
             {
                 Console.WriteLine("Invalid input");
+                Console.WriteLine();
                 return;
             }
 
