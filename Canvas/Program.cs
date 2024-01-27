@@ -48,6 +48,9 @@ namespace Canvas // Note: actual namespace depends on the project name.
                 else if (result == 10){
                     coursehelper.updateCourse();
                 }
+                else if (result == 11){
+                    studenthelper.updatePerson();
+                }
                 
                 displayMenu();
                 int.TryParse(Console.ReadLine(),out result);
@@ -67,6 +70,7 @@ namespace Canvas // Note: actual namespace depends on the project name.
             Console.WriteLine("8: Remove student from existing course");
             Console.WriteLine("9: Add an assignment to an existing course");
             Console.WriteLine("10: Update an existing course");
+            Console.WriteLine("11: Update an existing student");
             Console.WriteLine("12: Exit Program");
 
         }
