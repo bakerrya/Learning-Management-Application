@@ -1,4 +1,4 @@
-namespace Canvas.Models{
+namespace Library.Canvas.Models{
     public class Course{
         public int Code { get; set; }
         public string Name { get; set; }

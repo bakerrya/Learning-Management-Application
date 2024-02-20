@@ -1,7 +1,7 @@
 using System.Security.Cryptography.X509Certificates;
 using System.Globalization;
-using Canvas.Models;
-using Canvas.Services;
+using Library.Canvas.Models;
+using Library.Canvas.Services;
 
 namespace Canvas.Helpers{
     internal class AssignmentHelper{

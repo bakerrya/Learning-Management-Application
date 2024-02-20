@@ -1,25 +1,96 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ryanbaker/Documents/CanvasClone/Canvas/Canvas.csproj": {}
+    "C:\\Users\\Baker\\source\\repos\\CanvasClone\\Canvas\\Canvas.csproj": {}
   },
   "projects": {
-    "/Users/ryanbaker/Documents/CanvasClone/Canvas/Canvas.csproj": {
+    "C:\\Users\\Baker\\source\\repos\\CanvasClone\\Canvas\\Canvas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ryanbaker/Documents/CanvasClone/Canvas/Canvas.csproj",
+        "projectUniqueName": "C:\\Users\\Baker\\source\\repos\\CanvasClone\\Canvas\\Canvas.csproj",
         "projectName": "Canvas",
-        "projectPath": "/Users/ryanbaker/Documents/CanvasClone/Canvas/Canvas.csproj",
-        "packagesPath": "/Users/ryanbaker/.nuget/packages/",
-        "outputPath": "/Users/ryanbaker/Documents/CanvasClone/Canvas/obj/",
+        "projectPath": "C:\\Users\\Baker\\source\\repos\\CanvasClone\\Canvas\\Canvas.csproj",
+        "packagesPath": "C:\\Users\\Baker\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Baker\\source\\repos\\CanvasClone\\Canvas\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/ryanbaker/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Baker\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Baker\\source\\repos\\CanvasClone\\Library.Canvas\\Library.Canvas.csproj": {
+                "projectPath": "C:\\Users\\Baker\\source\\repos\\CanvasClone\\Library.Canvas\\Library.Canvas.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Baker\\source\\repos\\CanvasClone\\Library.Canvas\\Library.Canvas.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Baker\\source\\repos\\CanvasClone\\Library.Canvas\\Library.Canvas.csproj",
+        "projectName": "Library.Canvas",
+        "projectPath": "C:\\Users\\Baker\\source\\repos\\CanvasClone\\Library.Canvas\\Library.Canvas.csproj",
+        "packagesPath": "C:\\Users\\Baker\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Baker\\source\\repos\\CanvasClone\\Library.Canvas\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Baker\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -53,7 +124,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

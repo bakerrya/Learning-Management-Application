@@ -1,5 +1,5 @@
-using Canvas.Models;
-namespace Canvas.Services{
+using Library.Canvas.Models;
+namespace Library.Canvas.Services{
     public class CourseService{
         public List<Course> courseList = new List<Course>();
 

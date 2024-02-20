@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Canvas.Helpers;
-using Canvas.Models;
-using Canvas.Services;
+using Library.Canvas.Models;
+using Library.Canvas.Services;
 
 namespace Canvas // Note: actual namespace depends on the project name.
 {

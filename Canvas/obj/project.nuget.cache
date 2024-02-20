@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "w+2Rpl/IzRqiMDjHDM60I4v3B8Ap9EM9mNPJpQN0QwmqRM+gPFRpPODaHDxSCwFakMO7FTJ8CvLmN+gvZaL9CA==",
+  "dgSpecHash": "jaRaB6etzXp4yupL1pRc20GWGgvZ+uQd0gwfmTszhFraTEwbRft1w1NNFZZ5BXIqs2cQoGNwAV9WtKHqxaKzCg==",
   "success": true,
-  "projectFilePath": "/Users/ryanbaker/Documents/CanvasClone/Canvas/Canvas.csproj",
+  "projectFilePath": "C:\\Users\\Baker\\source\\repos\\CanvasClone\\Canvas\\Canvas.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
