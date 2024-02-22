@@ -9,8 +9,13 @@ public partial class InstructorView : ContentPage
 		BindingContext = new InstructorViewViewModel();
 	}
 
-    private void CancelClicked(object sender, EventArgs e)
+	private void CancelClicked(object sender, EventArgs e)
+	{
+		Shell.Current.GoToAsync("//MainPage");
+	}
+
+    private void AddPersonClicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("//MainPage");
+        Shell.Current.GoToAsync("//StudentDetail");
     }
 }

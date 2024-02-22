@@ -9,6 +9,10 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
         <Button
+            Text="Add Person"
+            Clicked="AddPersonClicked"
+        />
+        <Button
             Text="Cancel"
             Clicked="CancelClicked"
         />
