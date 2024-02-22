@@ -66,4 +66,16 @@
 	  <ProjectReference Include="..\Library.Canvas\Library.Canvas.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiXaml Update="views\InstructorView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="views\StudentDetailView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="views\StudentView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>
