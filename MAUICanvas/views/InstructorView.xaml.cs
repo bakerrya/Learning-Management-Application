@@ -16,6 +16,11 @@ public partial class InstructorView : ContentPage
 
     private void AddPersonClicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("//StudentDetail");
+        (BindingContext as InstructorViewViewModel).AddClick(Shell.Current);
     }
+
+	private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
+	{
+		(BindingContext as InstructorViewViewModel).RefreshView();
+	}
 }

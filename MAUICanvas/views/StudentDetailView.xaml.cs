@@ -34,7 +34,7 @@ public partial class StudentDetailView : ContentPage
             grade = Classification.Freshmen;
         }
         StudentService.Current.Add(new Person(context.Name, grade));
-        Shell.Current.GoToAsync("//MainPage");
+        Shell.Current.GoToAsync("//Instructor");
     }
 
     private void CancelClicked(object sender, EventArgs e)

@@ -7,7 +7,7 @@ namespace Library.Canvas.Services{
         {
             get
             {
-                return fakeDB.People.ToList();
+                return fakeDB.People.Where(p => p is Person).Select(p => p as Person);
             }
 
         }
@@ -34,7 +34,7 @@ namespace Library.Canvas.Services{
             fakeDB.People.Add(student);
         }
 
-        public IEnumerable<Person> SearchStudent(string query){
+        public IEnumerable<Person?> SearchStudent(string query){
             return Students.Where(s => s.Name.ToUpper().Contains(query.ToUpper()));
         }
 

@@ -9,11 +9,14 @@ namespace Library.Canvas.database
 {
     public static class fakeDB
     {
+        private static List<Person> people = new List<Person>();
+        private static List<Course> courses = new List<Course>();
         public static List<Person> People
         {
+   
             get
             {
-                return new List<Person>();
+                return people;
             }
 
         }
@@ -21,8 +24,8 @@ namespace Library.Canvas.database
         public static List<Course> Courses 
         { 
             get 
-            { 
-                return new List<Course>(); 
+            {
+                return courses;
             } 
         }
 
