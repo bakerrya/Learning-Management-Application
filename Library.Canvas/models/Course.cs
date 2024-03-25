@@ -20,6 +20,10 @@ namespace Library.Canvas.Models{
             this.Modules = new List<Module>();  
         }
 
+        public Course()
+        {
+        }
+
         public void DisplayCourseInfo()
         {
             Console.WriteLine($"Code:{Code}, Name: {Name}");

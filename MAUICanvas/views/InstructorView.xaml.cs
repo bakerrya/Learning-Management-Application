@@ -14,10 +14,10 @@ public partial class InstructorView : ContentPage
 		Shell.Current.GoToAsync("//MainPage");
 	}
 
-    private void AddPersonClicked(object sender, EventArgs e)
-    {
-        (BindingContext as InstructorViewViewModel).AddClick(Shell.Current);
-    }
+	private void AddPersonClicked(object sender, EventArgs e)
+	{
+		(BindingContext as InstructorViewViewModel).AddEnrollmentClick(Shell.Current);
+	}
 
 	private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
 	{
@@ -26,7 +26,20 @@ public partial class InstructorView : ContentPage
 
 	private void RemovePersonClicked(object sender, EventArgs e)
 	{
-		(BindingContext as InstructorViewViewModel).RemoveClicked();
+		(BindingContext as InstructorViewViewModel).RemoveEnrollmentClicked();
 	}
-	
+
+	private void AddCoursesClicked(object sender, EventArgs e)
+	{
+        (BindingContext as InstructorViewViewModel).AddCoursesClicked(Shell.Current);
+    }
+
+	private void Toolbar_CoursesClicked(object sender, EventArgs e)
+	{
+		(BindingContext as InstructorViewViewModel).ShowCourses();
+	}
+	private void Toolbar_EnrollmentsClicked(object sender, EventArgs e)
+	{
+        (BindingContext as InstructorViewViewModel).ShowEnrollments();
+    }
 }

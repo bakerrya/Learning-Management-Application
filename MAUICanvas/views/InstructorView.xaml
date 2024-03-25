@@ -4,26 +4,61 @@
              x:Class="MAUICanvas.views.InstructorView"
              Title="InstructorView"
              NavigatedTo="ContentPage_NavigatedTo">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="Enrollments"
+            Clicked="Toolbar_EnrollmentsClicked"
+            />
+        <ToolbarItem
+            Text="Courses"
+            Clicked="Toolbar_CoursesClicked"
+            />
+    </ContentPage.ToolbarItems>
     <VerticalStackLayout>
         <Label 
             Text="Instructor View"
+            VerticalOptions="Start" 
+            HorizontalOptions="Center" />
+        <VerticalStackLayout IsVisible="{Binding IsEnrollmentsVisible}">
+            <Label 
+            Text="Instructor Enrollments View"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <ListView
+            <ListView
             ItemsSource="{Binding People}"
             SelectedItem="{Binding SelectedPerson, Mode=TwoWay}">
-        </ListView>
-        <Button
+            </ListView>
+            <Button
             Text="Add Person"
             Clicked="AddPersonClicked"
-        />
-        <Button
+            />
+            <Button
             Text="Remove Person"
             Clicked="RemovePersonClicked"
             />
-        <Button
+            <Button
             Text="Cancel"
             Clicked="CancelClicked"
-        />
+            />
+        </VerticalStackLayout>
+        <VerticalStackLayout IsVisible="{Binding IsCoursesVisible}">
+            <Label 
+            Text="Instructor Courses View"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <ListView
+            ItemsSource="{Binding Courses}"
+            SelectedItem="{Binding SelectedCourse}">
+            </ListView>
+            <Button
+            Text="Add Course"
+            Clicked="AddCoursesClicked"
+            />
+            <Button
+            Text="Cancel"
+            Clicked="CancelClicked"
+            />
+        </VerticalStackLayout>
     </VerticalStackLayout>
+
 </ContentPage>

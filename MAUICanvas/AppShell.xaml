@@ -24,5 +24,9 @@
         Title="Student"
         ContentTemplate="{DataTemplate local2:StudentDetailView}"
         Route="StudentDetail" />
+    <ShellContent
+        Title="Course Detail"
+        ContentTemplate="{DataTemplate local2:CourseDetailView}"
+        Route="CourseDetail" /> 
 
 </Shell>

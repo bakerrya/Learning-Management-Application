@@ -14,6 +14,29 @@ namespace MAUICanvas.viewmodels
     public class InstructorViewViewModel : INotifyPropertyChanged
     {
         public Person SelectedPerson {  get; set; }
+        public Course SelectedCourse { get; set; }
+        public bool IsEnrollmentsVisible {  get; set; }
+        public bool IsCoursesVisible { get; set; }
+
+        public InstructorViewViewModel()
+        {
+            IsEnrollmentsVisible = true;
+            IsCoursesVisible = false;
+        }
+        public void ShowEnrollments()
+        {
+            IsEnrollmentsVisible = true;
+            IsCoursesVisible = false;
+            NotifyPropertyChanged("IsEnrollmentsVisible");
+            NotifyPropertyChanged("IsCoursesVisible");
+        }
+        public void ShowCourses()
+        {
+            IsEnrollmentsVisible = false;
+            IsCoursesVisible = true;
+            NotifyPropertyChanged("IsEnrollmentsVisible");
+            NotifyPropertyChanged("IsCoursesVisible");
+        }
         public ObservableCollection<Person> People
         {
             get
@@ -21,22 +44,35 @@ namespace MAUICanvas.viewmodels
                 return new ObservableCollection<Person>(StudentService.Current.Students);
             }
         }
+        public ObservableCollection<Course> Courses
+        {
+            get
+            {
+                return new ObservableCollection<Course>(CourseService.Current.Courses);
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        public void AddClick(Shell s)
+        public void AddEnrollmentClick(Shell s)
         {
             s.GoToAsync("//StudentDetail");
+        }
+
+        public void AddCoursesClicked(Shell s)
+        {
+            s.GoToAsync("//CourseDetail");
         }
 
         public void RefreshView()
         {
             NotifyPropertyChanged(nameof(People));
+            NotifyPropertyChanged(nameof(Courses));
         }
 
-        public void RemoveClicked()
+        public void RemoveEnrollmentClicked()
         {
             if(SelectedPerson == null)
             {

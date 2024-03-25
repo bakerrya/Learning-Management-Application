@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUICanvas.views.CourseDetailView"
+             Title="CourseDetailView">
+    <VerticalStackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label 
+                Grid.Column="0"
+                Grid.Row="0"
+                Padding="10"
+                Text="Name" 
+                />
+            <Entry Grid.Row="0" Grid.Column="1" Text="{Binding Path=Name, Mode=TwoWay}"></Entry>
+            <Label
+                Text="Code"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Grid.Row="1"
+                Grid.Column="0"
+                />
+            <Entry Text="{Binding Path=Code, Mode=TwoWay}"
+                Grid.Row="1"
+                Grid.Column="1">
+            </Entry>
+            <Label
+                Text="Description"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Grid.Row="2"
+                Grid.Column="0"
+                />
+            <Entry Text="{Binding Path=Description, Mode=TwoWay}"
+                Grid.Row="2"
+                Grid.Column="1">
+            </Entry>
+        </Grid>
+        <Button Text="OK"
+                Clicked="OkClicked"
+                />
+        <Button Text="Cancel"
+                Clicked="CancelClicked"/>
+    </VerticalStackLayout>
+</ContentPage>

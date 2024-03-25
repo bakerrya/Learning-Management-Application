@@ -22,11 +22,11 @@ namespace Library.Canvas.Services{
 
         }
 
-        public List<Course> Courses
+        public IEnumerable<Course> Courses
         {
             get
             {
-                return new List<Course>();
+                return fakeDB.Courses.Where(p => p is Course).Select(p => p as Course);
             }
 
         }
