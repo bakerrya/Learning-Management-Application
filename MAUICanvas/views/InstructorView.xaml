@@ -10,12 +10,17 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
         <ListView
-            ItemsSource="{Binding People}">
+            ItemsSource="{Binding People}"
+            SelectedItem="{Binding SelectedPerson, Mode=TwoWay}">
         </ListView>
         <Button
             Text="Add Person"
             Clicked="AddPersonClicked"
         />
+        <Button
+            Text="Remove Person"
+            Clicked="RemovePersonClicked"
+            />
         <Button
             Text="Cancel"
             Clicked="CancelClicked"

@@ -23,4 +23,10 @@ public partial class InstructorView : ContentPage
 	{
 		(BindingContext as InstructorViewViewModel).RefreshView();
 	}
+
+	private void RemovePersonClicked(object sender, EventArgs e)
+	{
+		(BindingContext as InstructorViewViewModel).RemoveClicked();
+	}
+	
 }

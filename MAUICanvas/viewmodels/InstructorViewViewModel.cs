@@ -13,6 +13,7 @@ namespace MAUICanvas.viewmodels
 {
     public class InstructorViewViewModel : INotifyPropertyChanged
     {
+        public Person SelectedPerson {  get; set; }
         public ObservableCollection<Person> People
         {
             get
@@ -33,6 +34,16 @@ namespace MAUICanvas.viewmodels
         public void RefreshView()
         {
             NotifyPropertyChanged(nameof(People));
+        }
+
+        public void RemoveClicked()
+        {
+            if(SelectedPerson == null)
+            {
+                return;
+            }
+            StudentService.Current.Remove(SelectedPerson);
+            RefreshView();
         }
     }
 }

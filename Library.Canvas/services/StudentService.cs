@@ -33,6 +33,11 @@ namespace Library.Canvas.Services{
         public void Add(Person student){
             fakeDB.People.Add(student);
         }
+        
+        public void Remove(Person student)
+        {
+            fakeDB.People.Remove(student);
+        }
 
         public IEnumerable<Person?> SearchStudent(string query){
             return Students.Where(s => s.Name.ToUpper().Contains(query.ToUpper()));
