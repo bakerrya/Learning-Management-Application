@@ -51,14 +51,31 @@ namespace MAUICanvas.viewmodels
                 return new ObservableCollection<Course>(CourseService.Current.Courses);
             }
         }
+
+        private string query;
+        public string Query
+        {
+            get => query;
+            set
+            {
+                query = value;
+                NotifyPropertyChanged(nameof(People));
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        public void EditEnrollmentClick(Shell s)
+        {
+            var id = SelectedPerson?.id ?? 0;
+            s.GoToAsync($"//StudentDetail?id={id}");
+        }
         public void AddEnrollmentClick(Shell s)
         {
-            s.GoToAsync("//StudentDetail");
+            s.GoToAsync($"//StudentDetail?id=0");
         }
 
         public void AddCoursesClicked(Shell s)
@@ -70,6 +87,12 @@ namespace MAUICanvas.viewmodels
         {
             NotifyPropertyChanged(nameof(People));
             NotifyPropertyChanged(nameof(Courses));
+        }
+
+        public void ResetView()
+        {
+            Query = string.Empty;
+            NotifyPropertyChanged(nameof(Query));
         }
 
         public void RemoveEnrollmentClicked()

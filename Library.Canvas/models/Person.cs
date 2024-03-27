@@ -1,6 +1,8 @@
 namespace Library.Canvas.Models{
     public class Person{
-        public Guid id {get; set;}
+
+        private static int lastId = 0;
+        public int id {get; set;}
         public string Name { get; set; }
         public Enum Classification { get; set; }
         public Dictionary<int, List<int>> Grades { get; set; }
@@ -8,7 +10,7 @@ namespace Library.Canvas.Models{
 
         public Person(string name, Enum classification)
         {
-            this.id = Guid.NewGuid();
+            this.id = ++lastId;
             this.Name = name;
             this.Classification = classification;
             this.Grades = new Dictionary<int, List<int>>();

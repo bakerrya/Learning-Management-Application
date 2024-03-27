@@ -18,18 +18,23 @@ public partial class InstructorView : ContentPage
 	{
 		(BindingContext as InstructorViewViewModel).AddEnrollmentClick(Shell.Current);
 	}
-
-	private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
-	{
-		(BindingContext as InstructorViewViewModel).RefreshView();
-	}
+    private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
+    {
+        (BindingContext as InstructorViewViewModel).ResetView();
+        (BindingContext as InstructorViewViewModel).RefreshView();
+    }
 
 	private void RemovePersonClicked(object sender, EventArgs e)
 	{
 		(BindingContext as InstructorViewViewModel).RemoveEnrollmentClicked();
 	}
 
-	private void AddCoursesClicked(object sender, EventArgs e)
+    private void EditPersonClicked(object sender, EventArgs e)
+    {
+        (BindingContext as InstructorViewViewModel).EditEnrollmentClick(Shell.Current);
+    }
+
+    private void AddCoursesClicked(object sender, EventArgs e)
 	{
         (BindingContext as InstructorViewViewModel).AddCoursesClicked(Shell.Current);
     }

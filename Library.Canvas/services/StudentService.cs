@@ -39,6 +39,11 @@ namespace Library.Canvas.Services{
             fakeDB.People.Remove(student);
         }
 
+        public Person? GetById(int id)
+        {
+            return fakeDB.People.FirstOrDefault(p => p.id == id);
+        }
+
         public IEnumerable<Person?> SearchStudent(string query){
             return Students.Where(s => s.Name.ToUpper().Contains(query.ToUpper()));
         }

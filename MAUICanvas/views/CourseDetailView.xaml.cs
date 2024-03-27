@@ -1,3 +1,4 @@
+using Library.Canvas.Models;
 using MAUICanvas.viewmodels;
 namespace MAUICanvas.views;
 
@@ -18,6 +19,16 @@ public partial class CourseDetailView : ContentPage
     private void OkClicked(object sender, EventArgs e)
     {
         (BindingContext as CourseDetailViewModel).AddCourse(Shell.Current);
+    }
+
+    private void EnrollInCourseClicked(object sender, EventArgs e)
+    {
+        (BindingContext as CourseDetailViewModel).AddStudentToEnrollmentList();
+    }
+
+    private void RemoveEnrollInCourseClicked(object sender, EventArgs e)
+    {
+        (BindingContext as CourseDetailViewModel).RemoveStudentFromCourse(Shell.Current);
     }
 
 }

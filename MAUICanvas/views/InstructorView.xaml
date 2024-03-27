@@ -15,50 +15,49 @@
             />
     </ContentPage.ToolbarItems>
     <VerticalStackLayout>
-        <Label 
-            Text="Instructor View"
-            VerticalOptions="Start" 
-            HorizontalOptions="Center" />
         <VerticalStackLayout IsVisible="{Binding IsEnrollmentsVisible}">
             <Label 
             Text="Instructor Enrollments View"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
             <ListView
-            ItemsSource="{Binding People}"
-            SelectedItem="{Binding SelectedPerson, Mode=TwoWay}">
+                ItemsSource="{Binding People}"
+                SelectedItem="{Binding SelectedPerson}">
             </ListView>
             <Button
-            Text="Add Person"
-            Clicked="AddPersonClicked"
-            />
+                Text="Add Person"
+                Clicked="AddPersonClicked"
+                />
             <Button
-            Text="Remove Person"
-            Clicked="RemovePersonClicked"
-            />
+                Text="Edit Person"
+                Clicked="EditPersonClicked"
+                />
             <Button
-            Text="Cancel"
-            Clicked="CancelClicked"
-            />
+                Text="Remove Person"
+                Clicked="RemovePersonClicked"
+                />
+            <Button
+                Text="Cancel"
+                Clicked="CancelClicked"
+                />
         </VerticalStackLayout>
         <VerticalStackLayout IsVisible="{Binding IsCoursesVisible}">
             <Label 
-            Text="Instructor Courses View"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+                Text="Instructor Courses View"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
             <ListView
-            ItemsSource="{Binding Courses}"
-            SelectedItem="{Binding SelectedCourse}">
+                ItemsSource="{Binding Courses}"
+                SelectedItem="{Binding SelectedCourse}">
             </ListView>
             <Button
-            Text="Add Course"
-            Clicked="AddCoursesClicked"
-            />
+                Text="Add Course"
+                Clicked="AddCoursesClicked"
+                />
             <Button
-            Text="Cancel"
-            Clicked="CancelClicked"
-            />
+                Text="Cancel"
+                Clicked="CancelClicked"
+                />
         </VerticalStackLayout>
     </VerticalStackLayout>
-
 </ContentPage>

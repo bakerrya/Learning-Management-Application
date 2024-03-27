@@ -32,12 +32,31 @@ namespace Library.Canvas.Services{
         }
 
         public void Add(Course course){
-            fakeDB.Courses.Add(course);
+            if (!fakeDB.Courses.Any(c => c.Code == course.Code || c.Name == course.Name))
+            {
+                fakeDB.Courses.Add(course);
+            }
+        }
+
+        public List<Person> GetRosterForCourse(Course course)
+        {
+            foreach (var fakeCourse in fakeDB.Courses)
+            {
+                if (fakeCourse == course)
+                {
+                    return fakeCourse.Roster ?? new List<Person>();
+                }
+            }
+            return new List<Person>();
         }
 
         public void AddStudent(Person selectedStudent, Course selectedCourse){
-            foreach (var course in Courses){
+            foreach (var course in fakeDB.Courses){
                 if (course.Name == selectedCourse.Name){
+                    if(course.Roster == null)
+                    {
+                        course.Roster = new List<Person>();
+                    }
                     course.Roster.Add(selectedStudent);
                 }
             }
