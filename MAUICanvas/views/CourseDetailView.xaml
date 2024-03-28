@@ -66,28 +66,27 @@
             <Label Text="Buttons" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center"/>
             <!-- Label for "Enrolled" -->
             <Label Text="Enrolled" Grid.Column="2" Grid.Row="0"/>
-
-            <!-- ListView for displaying not enrolled students -->
-            <ListView ItemsSource="{Binding EnrolledStudents}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3">
+            
+            <ListView ItemsSource="{Binding EnrolledStudents}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="1">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="{Binding Name}" />
-                                <Button Text="Enroll" Clicked="EnrollInCourseClicked" Grid.Column="1" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
             <!-- ListView for displaying not enrolled students -->
-            <ListView ItemsSource="{Binding NotEnrolledStudents}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3">
+            <ListView ItemsSource="{Binding NotEnrolledStudents}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="{Binding Name}" />
-                                <Button Text="Enroll" Clicked="EnrollInCourseClicked" Grid.Column="1" />
+                                <Button Text="Enroll" Clicked="EnrollInCourseClicked" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

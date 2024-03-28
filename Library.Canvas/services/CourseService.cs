@@ -40,14 +40,17 @@ namespace Library.Canvas.Services{
 
         public List<Person> GetRosterForCourse(Course course)
         {
+            List<Person> roster = new List<Person>(); 
+
             foreach (var fakeCourse in fakeDB.Courses)
             {
                 if (fakeCourse == course)
                 {
-                    return fakeCourse.Roster ?? new List<Person>();
+                    roster = fakeCourse.Roster ?? new List<Person>();
                 }
             }
-            return new List<Person>();
+
+            return roster;
         }
 
         public void AddStudent(Person selectedStudent, Course selectedCourse){

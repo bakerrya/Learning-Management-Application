@@ -55,6 +55,10 @@
                 Clicked="AddCoursesClicked"
                 />
             <Button
+                Text="Add Student to Course"
+                Clicked="AddStudentToCourseClicked"
+                />
+            <Button
                 Text="Cancel"
                 Clicked="CancelClicked"
                 />

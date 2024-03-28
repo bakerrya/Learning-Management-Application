@@ -1,64 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 using Library.Canvas.Models;
 using Library.Canvas.Services;
 
-
 namespace MAUICanvas.viewmodels
 {
-    internal class CourseDetailViewModel
+    internal class CourseDetailViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public Person SelectedPerson { get; set; }
-        public Course SelectedCourse { get; set; }
 
         private Course course;
 
-        private List<Person> studentsToEnroll = new List<Person>();
-
-
-        public ObservableCollection<Person> EnrolledStudents
-        {
-            get
-            {
-                if (course != null)
-                {
-                    return new ObservableCollection<Person>(CourseService.Current.GetRosterForCourse(course));
-                }
-                else
-                {
-                    return new ObservableCollection<Person>();
-                }
-            }
-        }
+        public ObservableCollection<Person> EnrolledStudents => new ObservableCollection<Person>(CourseService.Current.GetRosterForCourse(course));
 
         public ObservableCollection<Person> NotEnrolledStudents
         {
             get
             {
-                return new ObservableCollection<Person>(StudentService.Current.Students);
+                var notEnrolledStudents = StudentService.Current.Students.Except(EnrolledStudents);
+                return new ObservableCollection<Person>(notEnrolledStudents);
             }
         }
+
         public string Name
         {
             get => course?.Name ?? string.Empty;
-            set { if (course != null) course.Name = value; }
+            set { if (course != null) { course.Name = value; NotifyPropertyChanged(nameof(Name)); } }
         }
+
         public string Description
         {
             get => course?.Description ?? string.Empty;
-            set { if (course != null) course.Description = value; }
+            set { if (course != null) { course.Description = value; NotifyPropertyChanged(nameof(Description)); } }
         }
 
         public int Code
         {
             get => course?.Code ?? 0;
-            set { if (course != null) course.Code = value; }
+            set { if (course != null) { course.Code = value; NotifyPropertyChanged(nameof(Code)); } }
         }
-        public int Id {  get; set; }
+
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        public int Id { get; set; }
 
         public CourseDetailViewModel()
         {
@@ -67,34 +59,34 @@ namespace MAUICanvas.viewmodels
 
         public void AddCourse(Shell s)
         {
-
             CourseService.Current.Add(course);
             s.GoToAsync("//Instructor");
-
         }
-        public void EnrollStudentsInCourse()
+
+        public void EnrollStudentInCourse(Shell s)
         {
-            foreach (var student in studentsToEnroll)
+            CourseService.Current.AddStudent(SelectedPerson, course);
+            // Clear the existing collection
+            EnrolledStudents.Clear();
+
+            // Repopulate the collection with the updated data
+            var updatedEnrolledStudents = CourseService.Current.GetRosterForCourse(course);
+            foreach (var student in updatedEnrolledStudents)
             {
-                CourseService.Current.AddStudent(student, course);
+                EnrolledStudents.Add(student);
             }
-            studentsToEnroll.Clear(); // Clear the list after enrollment
-        }
-        public void AddStudentToCourse(Shell s)
-        {
-            CourseService.Current.Add(course);
-            EnrollStudentsInCourse();
-            s.GoToAsync("//Instructor");
+            NotifyPropertyChanged(nameof(EnrolledStudents));
+            NotifyPropertyChanged(nameof(NotEnrolledStudents));
         }
 
-        public void RemoveStudentFromCourse(Shell s) 
+        public void RemoveStudentFromCourse(Shell s)
         {
             CourseService.Current.RemoveStudent(SelectedPerson, course);
+            NotifyPropertyChanged(nameof(EnrolledStudents));
+            NotifyPropertyChanged(nameof(NotEnrolledStudents));
             s.GoToAsync("//Instructor");
         }
-        public void AddStudentToEnrollmentList()
-        {
-            studentsToEnroll.Add(SelectedPerson);
-        }
+
+
     }
 }

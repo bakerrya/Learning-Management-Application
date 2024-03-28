@@ -10,7 +10,6 @@ public partial class CourseDetailView : ContentPage
 		BindingContext = new CourseDetailViewModel();
 	}
 
-
     private void CancelClicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync("//Instructor");
@@ -23,7 +22,7 @@ public partial class CourseDetailView : ContentPage
 
     private void EnrollInCourseClicked(object sender, EventArgs e)
     {
-        (BindingContext as CourseDetailViewModel).AddStudentToEnrollmentList();
+        (BindingContext as CourseDetailViewModel).EnrollStudentInCourse(Shell.Current);
     }
 
     private void RemoveEnrollInCourseClicked(object sender, EventArgs e)

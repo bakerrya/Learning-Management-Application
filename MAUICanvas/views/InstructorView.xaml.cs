@@ -38,8 +38,12 @@ public partial class InstructorView : ContentPage
 	{
         (BindingContext as InstructorViewViewModel).AddCoursesClicked(Shell.Current);
     }
+    private void AddStudentToCourseClicked(object sender, EventArgs e)
+    {
+        (BindingContext as InstructorViewViewModel).AddStudentToCourse(Shell.Current);
+    }
 
-	private void Toolbar_CoursesClicked(object sender, EventArgs e)
+    private void Toolbar_CoursesClicked(object sender, EventArgs e)
 	{
 		(BindingContext as InstructorViewViewModel).ShowCourses();
 	}
