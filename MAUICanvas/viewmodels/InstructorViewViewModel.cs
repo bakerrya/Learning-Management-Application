@@ -87,6 +87,11 @@ namespace MAUICanvas.viewmodels
             s.GoToAsync("//CourseDetail");
         }
 
+        public void AddAssignmentToCourseClicked(Shell s)
+        {
+            s.GoToAsync("//AssignmentDetail");
+        }
+
         public void RefreshView()
         {
             NotifyPropertyChanged(nameof(People));

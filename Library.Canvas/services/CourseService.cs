@@ -61,12 +61,26 @@ namespace Library.Canvas.Services{
                         course.Roster = new List<Person>();
                     }
                     course.Roster.Add(selectedStudent);
+                    selectedStudent.Classes.Add(course);
                 }
             }
 
-            Console.WriteLine("Updated Roster: ");
-            selectedCourse.Roster.ForEach(Console.WriteLine);
-            Console.WriteLine();
+        }
+
+        public void AddAssignment(Assignment assignment, Course selectedCourse)
+        {
+            foreach (var course in fakeDB.Courses)
+            {
+                if (course.Name == selectedCourse.Name)
+                {
+                    if (course.Assignments == null)
+                    {
+                        course.Assignments = new List<Assignment>();
+                    }
+                    course.Assignments.Add(assignment);
+                }
+            }
+
         }
 
         public void RemoveStudent(Person selectedStudent, Course selectedCourse){
@@ -75,9 +89,6 @@ namespace Library.Canvas.Services{
                 Console.WriteLine("Student not found in Course Roster");
             }
 
-            Console.WriteLine("Updated Roster: ");
-            selectedCourse.Roster.ForEach(Console.WriteLine);
-            Console.WriteLine();
 
         }
 

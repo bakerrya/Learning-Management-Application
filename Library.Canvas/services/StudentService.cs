@@ -1,5 +1,6 @@
 using Library.Canvas.database;
 using Library.Canvas.Models;
+using System.Collections.ObjectModel;
 namespace Library.Canvas.Services{
     public class StudentService{
         private static StudentService _instance;
@@ -32,6 +33,16 @@ namespace Library.Canvas.Services{
 
         public void Add(Person student){
             fakeDB.People.Add(student);
+        }
+
+        public void ViewAssignments(Person student)
+        {
+            
+        }
+
+        public IEnumerable<Course?> GetClasses(Person student)
+        {
+            return fakeDB.Courses.Where(course => student.Classes.Any(aClass => aClass.Code == course.Code));
         }
         
         public void Remove(Person student)

@@ -8,7 +8,19 @@
             Text="Student View"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-
+        <ListView 
+            IsVisible="{Binding IsStudentListVisible}"
+            ItemsSource="{Binding People}"
+            SelectedItem="{Binding SelectedPerson}">
+        </ListView>
+        <ListView 
+            IsVisible="{Binding IsCourseListVisible}"
+            ItemsSource="{Binding Courses}">
+        </ListView>
+        <Button
+            Text="Ok"
+            Clicked="OkClicked"
+            />
         <Button
             Text="Cancel"
             Clicked="CancelClicked"

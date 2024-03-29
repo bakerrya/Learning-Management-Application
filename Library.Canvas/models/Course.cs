@@ -26,7 +26,7 @@ namespace Library.Canvas.Models{
 
         public void DisplayCourseInfo()
         {
-            Console.WriteLine($"Code:{Code}, Name: {Name}");
+            Console.WriteLine($"Course Name: {Name} {Code}");
         }
 
         public override string ToString()

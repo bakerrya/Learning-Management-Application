@@ -6,6 +6,8 @@
         public int TotalPoints { get; set; }
         public DateTime DueDate { get; set; }
 
+
+        public Assignment() { }
         public Assignment(string name, string? description, int totalPoints, DateTime dueDate)
         {
             this.Name = name;

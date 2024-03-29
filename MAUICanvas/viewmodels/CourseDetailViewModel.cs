@@ -17,7 +17,7 @@ namespace MAUICanvas.viewmodels
 
         private Course course;
 
-        public ObservableCollection<Person> EnrolledStudents => new ObservableCollection<Person>(CourseService.Current.GetRosterForCourse(course));
+        public ObservableCollection<Person> EnrolledStudents { get; private set; }
 
         public ObservableCollection<Person> NotEnrolledStudents
         {
@@ -55,6 +55,7 @@ namespace MAUICanvas.viewmodels
         public CourseDetailViewModel()
         {
             course = new Course();
+            EnrolledStudents = new ObservableCollection<Person>();
         }
 
         public void AddCourse(Shell s)
@@ -66,11 +67,8 @@ namespace MAUICanvas.viewmodels
         public void EnrollStudentInCourse(Shell s)
         {
             CourseService.Current.AddStudent(SelectedPerson, course);
-            // Clear the existing collection
-            EnrolledStudents.Clear();
-
-            // Repopulate the collection with the updated data
             var updatedEnrolledStudents = CourseService.Current.GetRosterForCourse(course);
+            EnrolledStudents.Clear();
             foreach (var student in updatedEnrolledStudents)
             {
                 EnrolledStudents.Add(student);
