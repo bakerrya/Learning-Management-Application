@@ -89,7 +89,11 @@ namespace Library.Canvas.Services{
                 Console.WriteLine("Student not found in Course Roster");
             }
 
-
+        }
+        public IEnumerable<Assignment> GetAssignmentsForCourse(string courseName)
+        {
+            var course = fakeDB.Courses.FirstOrDefault(c => c.Name == courseName && c is Course) as Course;
+            return course?.Assignments ?? Enumerable.Empty<Assignment>();
         }
 
         public IEnumerable<Course> SearchCourse(string query){

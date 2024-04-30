@@ -63,6 +63,10 @@
                 Clicked="AddAssignmentToCourseClicked"
                 />
             <Button
+                Text="View Assignments for Course"
+                Clicked="ViewAssignmentsForCourseClicked"
+                />
+            <Button
                 Text="Cancel"
                 Clicked="CancelClicked"
                 />

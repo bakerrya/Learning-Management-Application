@@ -91,6 +91,12 @@ namespace MAUICanvas.viewmodels
         {
             s.GoToAsync("//AssignmentDetail");
         }
+        public void ViewAssignmentsForCourseClicked(Shell s)
+        {
+            var courseName = SelectedCourse?.Name ?? string.Empty;
+            s.GoToAsync($"//AssignmentDetailForCourse?courseName={courseName}");
+        }
+
 
         public void RefreshView()
         {

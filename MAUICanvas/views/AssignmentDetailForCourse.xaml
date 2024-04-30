@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUICanvas.views.AssignmentDetailForCourse"
+             Title="AssignmentDetailForCourse"
+             NavigatedFrom="OnLeaving"
+             NavigatedTo="OnArriving">
+
+    <StackLayout>
+        <!-- Content inside a single StackLayout -->
+        <StackLayout Padding="10">
+            <!-- Label to display the selected course -->
+            <Label Text="{Binding CourseName}"
+                   VerticalOptions="Start"
+                   HorizontalOptions="Center"
+                   FontSize="Large"
+                   Margin="0,10,0,20" />
+
+            <!-- Label for Assignments -->
+            <Label Text="Assignments"
+                   FontSize="Medium"
+                   HorizontalOptions="Start"
+                   Margin="0,0,0,10" />
+
+            <!-- ListView to display the assignments -->
+            <ListView ItemsSource="{Binding Assignments}"
+                      VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+        <!-- Button stack layout -->
+        <StackLayout HorizontalOptions="Center">
+            <Button Text="Return to Menu"
+                    Clicked="ReturnClicked"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
