@@ -63,6 +63,10 @@
                 Clicked="AddAssignmentToCourseClicked"
                 />
             <Button
+                Text="Add Content Module to Course"
+                Clicked="AddContentToCourseClicked"
+                />
+            <Button
                 Text="View Assignments for Course"
                 Clicked="ViewAssignmentsForCourseClicked"
                 />

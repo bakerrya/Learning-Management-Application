@@ -37,6 +37,23 @@ namespace Library.Canvas.Services{
                 fakeDB.Courses.Add(course);
             }
         }
+        public IEnumerable<Module> GetModulesForCourse(string courseName)
+        {
+            var course = fakeDB.Courses.FirstOrDefault(c => c.Name == courseName && c is Course) as Course;
+            return course?.Modules ?? Enumerable.Empty<Module>();
+        }
+        public void AddModule(Module module, string courseName)
+        {
+            var course = fakeDB.Courses.FirstOrDefault(c => c.Name == courseName);
+            if (course != null)
+            {
+                if (course.Modules == null)
+                {
+                    course.Modules = new List<Module>();
+                }
+                course.Modules.Add(module);
+            }
+        }
 
         public List<Person> GetRosterForCourse(Course course)
         {

@@ -8,31 +8,28 @@ using Library.Canvas.Services;
 using MAUICanvas.viewmodels;
 using Microsoft.Maui.Controls;
 
-namespace MAUICanvas.views
+namespace MAUICanvas.views;
+
+[QueryProperty(nameof(SelectedCourse), "courseName")]
+public partial class AssignmentDetailForCourse : ContentPage
 {
-    [QueryProperty(nameof(SelectedCourse), "courseName")]
-    public partial class AssignmentDetailForCourse : ContentPage
+    public string SelectedCourse { get; set; }
+
+    public AssignmentDetailForCourse()
     {
-        private CourseAssignmentViewModel _viewModel;
+        InitializeComponent();
+    }
 
-        public string SelectedCourse { get; set; }
-
-        public AssignmentDetailForCourse()
-        {
-            InitializeComponent();
-        }
-
-        private void OnLeaving(object sender, NavigatedFromEventArgs e)
-        {
-            BindingContext = null;
-        }
-        private async void OnArriving(object sender, NavigatedToEventArgs e)
-        {
-            BindingContext = new CourseAssignmentViewModel(SelectedCourse);
-        }
-        private void ReturnClicked(object sender, EventArgs e)
-        {
-            (BindingContext as CourseAssignmentViewModel).ReturnClicked(Shell.Current);
-        }
+    private void OnLeaving(object sender, NavigatedFromEventArgs e)
+    {
+        BindingContext = null;
+    }
+    private async void OnArriving(object sender, NavigatedToEventArgs e)
+    {
+        BindingContext = new CourseAssignmentViewModel(SelectedCourse);
+    }
+    private void ReturnClicked(object sender, EventArgs e)
+    {
+        (BindingContext as CourseAssignmentViewModel).ReturnClicked(Shell.Current);
     }
 }

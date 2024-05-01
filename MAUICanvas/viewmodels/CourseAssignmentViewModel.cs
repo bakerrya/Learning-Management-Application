@@ -38,7 +38,6 @@ namespace MAUICanvas.viewmodels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
         public void ReturnClicked(Shell s)
         {
             s.GoToAsync("//Instructor");

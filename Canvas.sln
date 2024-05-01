@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MAUICanvas", "MAUICanvas\MA
 		{94A57052-753A-4B42-970C-D69C6B06CAA0} = {94A57052-753A-4B42-970C-D69C6B06CAA0}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Canvas", "Library.Canvas\Library.Canvas.csproj", "{94A57052-753A-4B42-970C-D69C6B06CAA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.Canvas", "Library.Canvas\Library.Canvas.csproj", "{94A57052-753A-4B42-970C-D69C6B06CAA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -31,7 +31,7 @@ namespace Library.Canvas.Models{
 
         public override string ToString()
         {
-            return $"Code:{Code}, Name: {Name}";
+            return $"Name: {Name}";
         }
 
 

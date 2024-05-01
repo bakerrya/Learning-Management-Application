@@ -1,0 +1,47 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUICanvas.views.ContentDetailView"
+             Title="ContentDetailView"
+             NavigatedFrom="OnLeaving"
+             NavigatedTo="OnArriving">
+    <StackLayout Padding="10">
+        <!-- Header -->
+        <Label Text="Add a Module" FontSize="Large" HorizontalOptions="Center" Margin="0,0,0,20"/>
+
+        <!-- Input fields -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Padding="10" Text="Name" VerticalOptions="Center"/>
+            <Entry Grid.Row="0" Grid.Column="1" Text="{Binding Name, Mode=TwoWay}" VerticalOptions="Center"/>
+            <Label Grid.Row="1" Grid.Column="0" Padding="10" Text="Description" VerticalOptions="Center"/>
+            <Entry Grid.Row="1" Grid.Column="1" Text="{Binding Description, Mode=TwoWay}" VerticalOptions="Center"/>
+        </Grid>
+
+        <Label Text="Current Modules:"
+                   FontSize="Medium"
+                   HorizontalOptions="Start"
+                   Margin="0,0,0,10" />
+
+        <!-- List of modules -->
+        <ListView ItemsSource="{Binding Modules}" VerticalOptions="FillAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Buttons -->
+        <Button Text="OK" Clicked="OkClicked"/>
+        <Button Text="Return To Menu" Clicked="ReturnClicked"/>
+    </StackLayout>
+</ContentPage>
