@@ -20,8 +20,13 @@
         </ListView>
         <Button
             IsVisible="{Binding IsCourseListVisible}"
-            Text="View Class Information"
-            Clicked="ViewClassClicked"
+            Text="View Assignments"
+            Clicked="ViewAssignmentsClicked"
+            />
+        <Button
+            IsVisible="{Binding IsCourseListVisible}"
+            Text="View Modules for Course"
+            Clicked="ViewModulesClicked"
             />
         <Button
             IsVisible="{Binding IsStudentListVisible}"

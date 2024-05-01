@@ -37,9 +37,11 @@
         ContentTemplate="{DataTemplate local2:AssignmentDetailForCourse}"
         Route="AssignmentDetailForCourse" />
     <ShellContent
-        Title="ContentDetailForCourse"
+        Title="ContentDetail"
         ContentTemplate="{DataTemplate local2:ContentDetailView}"
         Route="ContentDetailView" />
-
-
+    <ShellContent
+        Title="ContentDetailForCourse"
+        ContentTemplate="{DataTemplate local2:ContentDetailViewForCourse}"
+        Route="ContentDetailViewForCourse" />
 </Shell>

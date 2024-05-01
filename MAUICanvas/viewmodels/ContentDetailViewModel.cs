@@ -63,7 +63,7 @@ namespace MAUICanvas.viewmodels
 
         public void ReturnClicked(Shell s)
         {
-            s.GoToAsync("//Instructor");
+            s.GoToAsync("//MainPage");
         }
     }
 }

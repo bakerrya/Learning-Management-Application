@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -13,9 +12,7 @@ namespace MAUICanvas.viewmodels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public Person SelectedPerson { get; set; }
-
-        private Course course;
+        private Course _course;
 
         public ObservableCollection<Person> EnrolledStudents { get; private set; }
 
@@ -30,44 +27,46 @@ namespace MAUICanvas.viewmodels
 
         public string Name
         {
-            get => course?.Name ?? string.Empty;
-            set { if (course != null) { course.Name = value; NotifyPropertyChanged(nameof(Name)); } }
+            get => _course?.Name ?? string.Empty;
+            set { if (_course != null) { _course.Name = value; NotifyPropertyChanged(); } }
         }
 
         public string Description
         {
-            get => course?.Description ?? string.Empty;
-            set { if (course != null) { course.Description = value; NotifyPropertyChanged(nameof(Description)); } }
+            get => _course?.Description ?? string.Empty;
+            set { if (_course != null) { _course.Description = value; NotifyPropertyChanged(); } }
         }
 
         public int Code
         {
-            get => course?.Code ?? 0;
-            set { if (course != null) { course.Code = value; NotifyPropertyChanged(nameof(Code)); } }
+            get => _course?.Code ?? 0;
+            set { if (_course != null) { _course.Code = value; NotifyPropertyChanged(); } }
         }
 
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         public int Id { get; set; }
 
         public CourseDetailViewModel()
         {
-            course = new Course();
+            _course = new Course();
             EnrolledStudents = new ObservableCollection<Person>();
+        }
+
+        private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public void AddCourse(Shell s)
         {
-            CourseService.Current.Add(course);
+            CourseService.Current.Add(_course); // Add the current course instance
+            _course = new Course(); // Create a new instance for the next course
             s.GoToAsync("//Instructor");
         }
 
         public void EnrollStudentInCourse(Shell s)
         {
-            CourseService.Current.AddStudent(SelectedPerson, course);
-            var updatedEnrolledStudents = CourseService.Current.GetRosterForCourse(course);
+            CourseService.Current.AddStudent(SelectedPerson, _course);
+            var updatedEnrolledStudents = CourseService.Current.GetRosterForCourse(_course);
             EnrolledStudents.Clear();
             foreach (var student in updatedEnrolledStudents)
             {
@@ -79,12 +78,12 @@ namespace MAUICanvas.viewmodels
 
         public void RemoveStudentFromCourse(Shell s)
         {
-            CourseService.Current.RemoveStudent(SelectedPerson, course);
+            CourseService.Current.RemoveStudent(SelectedPerson, _course);
             NotifyPropertyChanged(nameof(EnrolledStudents));
             NotifyPropertyChanged(nameof(NotEnrolledStudents));
             s.GoToAsync("//Instructor");
         }
 
-
+        public Person SelectedPerson { get; set; }
     }
 }

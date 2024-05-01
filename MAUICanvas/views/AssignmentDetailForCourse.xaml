@@ -27,7 +27,7 @@
                       VerticalOptions="FillAndExpand">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Name}" />
+                        <TextCell Text="{Binding}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

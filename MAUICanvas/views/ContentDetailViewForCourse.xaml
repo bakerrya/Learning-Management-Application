@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUICanvas.views.ContentDetailViewForCourse"
+             Title="ContentDetailViewForCourse"
+             NavigatedFrom="OnLeaving"
+             NavigatedTo="OnArriving">
+    <StackLayout Padding="10">
+
+        <Label Text="Current Modules:"
+                   FontSize="Medium"
+                   HorizontalOptions="Start"
+                   Margin="0,0,0,10" />
+
+        <!-- List of modules -->
+        <ListView ItemsSource="{Binding Modules}" VerticalOptions="FillAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Buttons -->
+        <Button Text="Return To Menu" Clicked="ReturnClicked"/>
+    </StackLayout>
+</ContentPage>

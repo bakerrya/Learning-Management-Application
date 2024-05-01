@@ -62,8 +62,6 @@
 
             <!-- Label for "Not Enrolled" -->
             <Label Text="Not Enrolled" Grid.Column="0" Grid.Row="0"/>
-            <!-- Label for "Buttons" -->
-            <Label Text="Buttons" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center"/>
             <!-- Label for "Enrolled" -->
             <Label Text="Enrolled" Grid.Column="2" Grid.Row="0"/>
             

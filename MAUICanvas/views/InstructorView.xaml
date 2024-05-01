@@ -15,7 +15,7 @@
             />
     </ContentPage.ToolbarItems>
     <VerticalStackLayout>
-        <VerticalStackLayout IsVisible="{Binding IsEnrollmentsVisible}">
+        <VerticalStackLayout IsVisible="{Binding IsEnrollmentsVisible}" Spacing="5">
             <Label 
             Text="Instructor Enrollments View"
             VerticalOptions="Center" 
@@ -41,7 +41,7 @@
                 Clicked="CancelClicked"
                 />
         </VerticalStackLayout>
-        <VerticalStackLayout IsVisible="{Binding IsCoursesVisible}">
+        <VerticalStackLayout IsVisible="{Binding IsCoursesVisible}" Spacing="5">
             <Label 
                 Text="Instructor Courses View"
                 VerticalOptions="Center" 
@@ -69,6 +69,10 @@
             <Button
                 Text="View Assignments for Course"
                 Clicked="ViewAssignmentsForCourseClicked"
+                />
+            <Button
+                Text="View Modules for Course"
+                Clicked="ViewModulesForCourseClicked"
                 />
             <Button
                 Text="Cancel"

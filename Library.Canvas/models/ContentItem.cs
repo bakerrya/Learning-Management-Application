@@ -10,7 +10,22 @@ namespace Library.Canvas.Models {
 
         public override string ToString()
         {
-            return $"{Name}: {Description}";
+            if (!string.IsNullOrEmpty(Name))
+            {
+                if (!string.IsNullOrEmpty(Description))
+                {
+                    return $"{Name}: {Description}";
+                }
+                else
+                {
+                    return Name;
+                }
+            }
+            else
+            {
+                return string.IsNullOrEmpty(Description) ? string.Empty : Description;
+            }
         }
+
     }
 }

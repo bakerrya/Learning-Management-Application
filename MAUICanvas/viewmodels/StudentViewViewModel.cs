@@ -1,7 +1,6 @@
 ﻿using Library.Canvas.Models;
 using Library.Canvas.Services;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -10,97 +9,49 @@ namespace MAUICanvas.viewmodels
 {
     internal class StudentViewViewModel : INotifyPropertyChanged
     {
-        private ObservableCollection<Person> _people;
-        private ObservableCollection<Course> _courses;
-        private bool _isStudentListVisible;
-        private bool _isCourseListVisible;
-
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public StudentViewViewModel()
-        {
-            _people = new ObservableCollection<Person>(StudentService.Current.Students);
-            _courses = new ObservableCollection<Course>();
-            _isStudentListVisible = true;
-            _isCourseListVisible = false;
-        }
+        public ObservableCollection<Person> People { get; set; }
+        public ObservableCollection<Course> Courses { get; set; }
 
-        public ObservableCollection<Person> People
-        {
-            get { return _people; }
-            set
-            {
-                if (_people != value)
-                {
-                    _people = value;
-                    NotifyPropertyChanged();
-                }
-            }
-        }
-
-        public ObservableCollection<Course> Courses
-        {
-            get { return _courses; }
-            set
-            {
-                if (_courses != value)
-                {
-                    _courses = value;
-                    NotifyPropertyChanged();
-                }
-            }
-        }
-
-        public bool IsStudentListVisible
-        {
-            get { return _isStudentListVisible; }
-            set
-            {
-                if (_isStudentListVisible != value)
-                {
-                    _isStudentListVisible = value;
-                    NotifyPropertyChanged();
-                }
-            }
-        }
-        public bool IsCourseListVisible
-        {
-            get { return _isCourseListVisible; }
-            set
-            {
-                if (_isCourseListVisible != value)
-                {
-                    _isCourseListVisible = value;
-                    NotifyPropertyChanged();
-                }
-            }
-        }
+        public bool IsStudentListVisible { get; set; }
+        public bool IsCourseListVisible { get; set; }
 
         public Person SelectedPerson { get; set; }
         public Course SelectedCourse { get; set; }
+
+        public StudentViewViewModel()
+        {
+            People = new ObservableCollection<Person>(StudentService.Current.Students);
+            Courses = new ObservableCollection<Course>();
+            IsStudentListVisible = true;
+            IsCourseListVisible = false;
+        }
 
         public void EnterStudentView(Shell s)
         {
             IsStudentListVisible = false;
             IsCourseListVisible = true;
             NotifyPropertyChanged(nameof(IsStudentListVisible));
-            NotifyPropertyChanged(nameof(IsCourseListVisible)); 
+            NotifyPropertyChanged(nameof(IsCourseListVisible));
             Courses.Clear();
             var courses = StudentService.Current.GetClasses(SelectedPerson);
             foreach (var course in courses)
             {
                 Courses.Add(course);
             }
-            NotifyPropertyChanged(nameof(Courses)); 
-
+            NotifyPropertyChanged(nameof(Courses));
         }
-
 
         public void ViewAssignments(Shell s)
         {
-            // Implementation for viewing assignments
             var courseName = SelectedCourse?.Name ?? string.Empty;
             s.GoToAsync($"//AssignmentDetailForCourse?courseName={courseName}");
+        }
+        public void ViewModules(Shell s)
+        {
+            var courseName = SelectedCourse?.Name ?? string.Empty;
+            s.GoToAsync($"//ContentDetailViewForCourse?courseName={courseName}");
         }
 
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")

@@ -35,10 +35,6 @@ namespace Library.Canvas.Services{
             fakeDB.People.Add(student);
         }
 
-        public void ViewAssignments(Person student)
-        {
-            
-        }
 
         public IEnumerable<Course?> GetClasses(Person student)
         {
