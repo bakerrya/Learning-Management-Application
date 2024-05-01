@@ -17,4 +17,8 @@ public partial class StudentView : ContentPage
     {
         (BindingContext as StudentViewViewModel).EnterStudentView(Shell.Current);
     }
+    private void ViewClassClicked(object sender, EventArgs e)
+    {
+        (BindingContext as StudentViewViewModel).ViewAssignments(Shell.Current);
+    }
 }

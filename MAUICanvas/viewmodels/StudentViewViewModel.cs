@@ -19,7 +19,6 @@ namespace MAUICanvas.viewmodels
 
         public StudentViewViewModel()
         {
-            // Initialize collections
             _people = new ObservableCollection<Person>(StudentService.Current.Students);
             _courses = new ObservableCollection<Course>();
             _isStudentListVisible = true;
@@ -78,6 +77,7 @@ namespace MAUICanvas.viewmodels
         }
 
         public Person SelectedPerson { get; set; }
+        public Course SelectedCourse { get; set; }
 
         public void EnterStudentView(Shell s)
         {
@@ -96,9 +96,11 @@ namespace MAUICanvas.viewmodels
         }
 
 
-        public void ViewAssignments()
+        public void ViewAssignments(Shell s)
         {
             // Implementation for viewing assignments
+            var courseName = SelectedCourse?.Name ?? string.Empty;
+            s.GoToAsync($"//AssignmentDetailForCourse?courseName={courseName}");
         }
 
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")

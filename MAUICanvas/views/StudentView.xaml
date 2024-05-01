@@ -15,9 +15,16 @@
         </ListView>
         <ListView 
             IsVisible="{Binding IsCourseListVisible}"
-            ItemsSource="{Binding Courses}">
+            ItemsSource="{Binding Courses}"
+            SelectedItem="{Binding SelectedCourse}">
         </ListView>
         <Button
+            IsVisible="{Binding IsCourseListVisible}"
+            Text="View Class Information"
+            Clicked="ViewClassClicked"
+            />
+        <Button
+            IsVisible="{Binding IsStudentListVisible}"
             Text="Ok"
             Clicked="OkClicked"
             />
