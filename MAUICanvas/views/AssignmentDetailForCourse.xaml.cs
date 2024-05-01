@@ -28,6 +28,12 @@ public partial class AssignmentDetailForCourse : ContentPage
     {
         BindingContext = new CourseAssignmentViewModel(SelectedCourse);
     }
+
+    private void WorkOnAssignmentClicked(object sender, EventArgs e)
+    {
+        (BindingContext as CourseAssignmentViewModel).WorkOnAssignmentClicked(Shell.Current);
+    }
+
     private void ReturnClicked(object sender, EventArgs e)
     {
         (BindingContext as CourseAssignmentViewModel).ReturnClicked(Shell.Current);

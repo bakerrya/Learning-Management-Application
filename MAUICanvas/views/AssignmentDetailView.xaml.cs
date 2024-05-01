@@ -14,7 +14,7 @@ public partial class AssignmentDetailView : ContentPage
 
     private void CancelClicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("//Instructor");
+        Shell.Current.GoToAsync("//MainPage");
     }
 
     private void OkClicked(object sender, EventArgs e)

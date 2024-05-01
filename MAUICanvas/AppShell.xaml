@@ -48,4 +48,8 @@
         Title="Add Student View"
         ContentTemplate="{DataTemplate local2:AddStudentView}"
         Route="AddStudentView" />
+    <ShellContent
+        Title="AssignmentSubmission"
+        ContentTemplate="{DataTemplate local2:SubmitAssignmentView}"
+        Route="SubmitAssignmentView" />
 </Shell>

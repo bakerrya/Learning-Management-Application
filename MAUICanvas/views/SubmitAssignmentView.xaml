@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUICanvas.views.SubmitAssignmentView"
+             Title="SubmitAssignmentView"             
+             NavigatedFrom="OnLeaving"
+             NavigatedTo="OnArriving">
+    <StackLayout Padding="20">
+        <Label Text="Assignment Submission" FontSize="Large" HorizontalOptions="Center" Margin="0,20,0,10"/>
+
+        <Label Text="Text Entry:" />
+        <Editor x:Name="TextEntryEditor" HeightRequest="100" Placeholder="Enter text entry" Text="{Binding TextEntry}" />
+
+        <Button Text="Submit Assignment" Clicked="SubmitClicked" HorizontalOptions="Center" Margin="0,20,0,0" />
+        <Button Text="Return To Menu" Clicked="ReturnClicked" HorizontalOptions="Center" Margin="0,20,0,0" />
+
+    </StackLayout>
+</ContentPage>

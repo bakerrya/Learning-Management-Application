@@ -24,6 +24,8 @@
             <DatePicker Grid.Row="3" Grid.Column="1" Date="{Binding DueDate}" MinimumDate="{Binding MinDate}" MaximumDate="2050-12-24"/>
         </Grid>
 
+
+        <Label Text="Select a Course to Add Assignment: " Margin="0,10,0,0" HorizontalOptions="Start" FontAttributes="Bold"/>
         <!-- ListView to display the list of courses -->
         <ListView ItemsSource="{Binding Courses}" SelectedItem="{Binding SelectedCourse}">
             <ListView.ItemTemplate>

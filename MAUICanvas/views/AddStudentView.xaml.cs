@@ -16,11 +16,11 @@ public partial class AddStudentView : ContentPage
     }
     private async void OnArriving(object sender, NavigatedToEventArgs e)
     {
-        BindingContext = new AddAssignmentViewModel(SelectedCourse);
+        BindingContext = new AddStudentViewModel(SelectedCourse);
     }
     private void EnrollInCourseClicked(object sender, EventArgs e)
     {
-        (BindingContext as AddAssignmentViewModel).EnrollStudentInCourse(Shell.Current);
+        (BindingContext as AddStudentViewModel).EnrollStudentInCourse(Shell.Current);
     }
 
 

@@ -7,7 +7,7 @@ using Microsoft.Maui.Controls;
 
 namespace MAUICanvas.viewmodels
 {
-    internal class AddAssignmentViewModel : INotifyPropertyChanged
+    internal class AddStudentViewModel : INotifyPropertyChanged
     {
         private Course _course;
 
@@ -24,17 +24,17 @@ namespace MAUICanvas.viewmodels
             }
         }
 
-        public AddAssignmentViewModel(string courseName)
+        public AddStudentViewModel(string courseName)
         {
             _course = CourseService.Current.GetCourseByName(courseName);
             EnrolledStudents = new ObservableCollection<Person>();
-            LoadEnrolledStudents(); // Load initially enrolled students
+            LoadEnrolledStudents();
         }
 
         public void EnrollStudentInCourse(Shell s)
         {
             CourseService.Current.AddStudent(SelectedPerson, _course);
-            LoadEnrolledStudents(); // Reload enrolled students after enrollment
+            LoadEnrolledStudents();
         }
 
         private void LoadEnrolledStudents()

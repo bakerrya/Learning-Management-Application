@@ -12,6 +12,8 @@ namespace MAUICanvas.viewmodels
     {
         public string CourseName { get; set; }
 
+        public Assignment SelectedAssignment { get; set; }
+
         public CourseAssignmentViewModel(string courseName)
         {
             this.CourseName = courseName;
@@ -28,6 +30,12 @@ namespace MAUICanvas.viewmodels
             {
                 Assignments.Add(assignment);
             }
+        }
+
+        public void WorkOnAssignmentClicked(Shell s)
+        {
+            var assignmentName = SelectedAssignment?.Name ?? String.Empty;
+            s.GoToAsync($"//SubmitAssignmentView?assignmentName={assignmentName}");
         }
 
         public ObservableCollection<Assignment> Assignments { get; private set; }

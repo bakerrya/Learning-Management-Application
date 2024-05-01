@@ -24,10 +24,11 @@
 
             <!-- ListView to display the assignments -->
             <ListView ItemsSource="{Binding Assignments}"
-                      VerticalOptions="FillAndExpand">
+                      VerticalOptions="FillAndExpand"
+                      SelectedItem="{Binding SelectedAssignment}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding}" />
+                        <TextCell Text="{Binding}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -35,6 +36,8 @@
 
         <!-- Button stack layout -->
         <StackLayout HorizontalOptions="Center">
+            <Button Text="Work On Assignment"
+                    Clicked="WorkOnAssignmentClicked"/>
             <Button Text="Return to Menu"
                     Clicked="ReturnClicked"/>
         </StackLayout>

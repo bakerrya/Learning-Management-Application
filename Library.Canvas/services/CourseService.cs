@@ -70,6 +70,20 @@ namespace Library.Canvas.Services{
             return roster;
         }
 
+
+        public Assignment GetAssignmentByName(string assignmentName)
+        {
+            foreach (var course in fakeDB.Courses)
+            {
+                var assignment = course.Assignments.FirstOrDefault(a => a.Name == assignmentName);
+                if (assignment != null)
+                {
+                    return assignment;
+                }
+            }
+            return null;
+        }
+
         public void AddStudent(Person selectedStudent, Course selectedCourse){
             foreach (var course in fakeDB.Courses){
                 if (course.Name == selectedCourse.Name){
@@ -84,6 +98,25 @@ namespace Library.Canvas.Services{
 
         }
 
+        public void PrintSubmissionsForAssignment(string assignmentName)
+        {
+            foreach (var course in Courses)
+            {
+                foreach (var assignment in course.Assignments)
+                {
+                    if (assignment.Name == assignmentName)
+                    {
+                        Console.WriteLine($"Submissions for Assignment: {assignment.Name}");
+                        foreach (var submission in assignment.Submissions)
+                        {
+                            Console.WriteLine($"Submission: {submission.TextEntry} - {submission.SubmissionTime}");
+                        }
+                        return;
+                    }
+                }
+            }
+            Console.WriteLine("Assignment not found in any course.");
+        }
         public void AddAssignment(Assignment assignment, Course selectedCourse)
         {
             foreach (var course in fakeDB.Courses)

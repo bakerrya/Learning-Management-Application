@@ -48,11 +48,8 @@
         <Grid HorizontalOptions="FillAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <!-- Row for "Not Enrolled" label and ListView -->
                 <RowDefinition Height="Auto"/>
-                <!-- Row for "Buttons" label (if needed) -->
                 <RowDefinition Height="Auto"/>
-                <!-- Row for "Enrolled" label and ListView -->
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>

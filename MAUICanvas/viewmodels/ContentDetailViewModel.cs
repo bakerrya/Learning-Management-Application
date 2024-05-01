@@ -25,8 +25,8 @@ namespace MAUICanvas.viewmodels
         }
         public string Description
         {
-            get => module?.Name ?? string.Empty;
-            set { if (module != null) { module.Name = value; NotifyPropertyChanged(nameof(Description)); } }
+            get => module?.Description ?? string.Empty;
+            set { if (module != null) { module.Description = value; NotifyPropertyChanged(nameof(Description)); } }
         }
 
         public ContentDetailViewModel(string courseName)

@@ -16,6 +16,7 @@ namespace MAUICanvas.viewmodels
 
         public Assignment assignment;
         public Course SelectedCourse { get; set; }
+        public Assignment SelectedAssignment { get; set; }
         public ObservableCollection<Assignment> AssignmentList { get; private set; }
 
         public ObservableCollection<Course> Courses
@@ -31,8 +32,8 @@ namespace MAUICanvas.viewmodels
             set { if (assignment != null) { assignment.Name = value; NotifyPropertyChanged(nameof(Name)); } }
         }
         public string Description {
-            get => assignment?.Name ?? string.Empty;
-            set { if (assignment != null) { assignment.Name = value; NotifyPropertyChanged(nameof(Description)); } }
+            get => assignment?.Description ?? string.Empty;
+            set { if (assignment != null) { assignment.Description = value; NotifyPropertyChanged(nameof(Description)); } }
         }
         public int TotalPoints {
             get => assignment?.TotalPoints ?? 0;
