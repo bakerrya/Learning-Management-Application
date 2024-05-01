@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUICanvas.views.AddStudentView"
+             Title="AddStudentView"
+             NavigatedFrom="OnLeaving"
+             NavigatedTo="OnArriving">
+    <VerticalStackLayout>
+        <!--STUDENT ROSTER-->
+        <Grid HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- Row for "Not Enrolled" label and ListView -->
+                <RowDefinition Height="Auto"/>
+                <!-- Row for "Buttons" label (if needed) -->
+                <RowDefinition Height="Auto"/>
+                <!-- Row for "Enrolled" label and ListView -->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Label for "Not Enrolled" -->
+            <Label Text="Not Enrolled" Grid.Column="0" Grid.Row="0"/>
+            <!-- Label for "Enrolled" -->
+            <Label Text="Enrolled" Grid.Column="2" Grid.Row="0"/>
+
+            <ListView ItemsSource="{Binding EnrolledStudents}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Name}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!-- ListView for displaying not enrolled students -->
+            <ListView ItemsSource="{Binding NotEnrolledStudents}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Name}" />
+                                <Button Text="Enroll" Clicked="EnrollInCourseClicked" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+        <Button Text="Return"
+               Clicked="ReturnClicked"/>
+    </VerticalStackLayout>
+</ContentPage>

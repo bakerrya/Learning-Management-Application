@@ -58,8 +58,8 @@ namespace MAUICanvas.viewmodels
 
         public void AddCourse(Shell s)
         {
-            CourseService.Current.Add(_course); // Add the current course instance
-            _course = new Course(); // Create a new instance for the next course
+            CourseService.Current.Add(_course);
+            _course = new Course(); 
             s.GoToAsync("//Instructor");
         }
 

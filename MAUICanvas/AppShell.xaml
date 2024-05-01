@@ -44,4 +44,8 @@
         Title="ContentDetailForCourse"
         ContentTemplate="{DataTemplate local2:ContentDetailViewForCourse}"
         Route="ContentDetailViewForCourse" />
+    <ShellContent
+        Title="Add Student View"
+        ContentTemplate="{DataTemplate local2:AddStudentView}"
+        Route="AddStudentView" />
 </Shell>

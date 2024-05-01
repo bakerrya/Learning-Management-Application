@@ -79,7 +79,8 @@ namespace MAUICanvas.viewmodels
         }
         public void AddStudentToCourse(Shell s)
         {
-            s.GoToAsync("//CourseDetail");
+            var courseName = SelectedCourse?.Name ?? string.Empty;
+            s.GoToAsync($"//AddStudentView?courseName={courseName}");
         }
 
         public void AddCoursesClicked(Shell s)

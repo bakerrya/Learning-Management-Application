@@ -99,7 +99,10 @@ namespace Library.Canvas.Services{
             }
 
         }
-
+        public Course GetCourseByName(string courseName)
+        {
+            return fakeDB.Courses.FirstOrDefault(c => c.Name.Equals(courseName, StringComparison.OrdinalIgnoreCase)) as Course;
+        }
         public void RemoveStudent(Person selectedStudent, Course selectedCourse){
             if (!selectedCourse.Roster.Remove(selectedStudent))
             {
